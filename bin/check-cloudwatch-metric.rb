@@ -64,6 +64,12 @@ class CloudWatchMetricCheck < Sensu::Plugin::Check::CLI
          default: 60,
          proc: proc(&:to_i)
 
+  option :range,
+         description: 'To define the range for the datapoints',
+         short: '-R N',
+         long: '--range SECONDS',
+         proc: proc(&:to_i)
+
   option :statistics,
          short: '-s N',
          long: '--statistics NAME',

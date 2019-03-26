@@ -39,7 +39,7 @@ module CloudwatchCommon
       namespace: config[:namespace],
       metric_name: config[:metric_name],
       dimensions: config[:dimensions],
-      start_time: Time.now - config[:period] * 10,
+      start_time: Time.now - (config[:range] || config[:period] * 10),
       end_time: Time.now,
       period: config[:period],
       unit: config[:unit]
