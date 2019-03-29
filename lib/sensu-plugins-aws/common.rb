@@ -24,6 +24,7 @@ module Common
 
   def aws_config
     Aws.config[:credentials] = Aws::Credentials.new(config[:aws_access_key], config[:aws_secret_access_key]) if config[:aws_access_key] && config[:aws_secret_access_key]
+    Aws.config[:credentials] = Aws::SharedCredentials.new(profile_name: config[:aws_profile]) if config[:aws_profile]
 
     # the cop can't figure out whether it should be a single guard or
     # a multiple line if. Due to poor detection in this case we left as

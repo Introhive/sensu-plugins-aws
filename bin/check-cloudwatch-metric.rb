@@ -32,6 +32,11 @@ require 'sensu-plugin/check/cli'
 require 'aws-sdk'
 
 class CloudWatchMetricCheck < Sensu::Plugin::Check::CLI
+  option :aws_profile,
+         short: '-P AWS_PROFILE',
+         long: '--aws-profile PROFILE_NAME',
+         description: 'AWS profile'
+
   option :aws_region,
          short: '-r AWS_REGION',
          long: '--aws-region REGION',
