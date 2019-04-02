@@ -168,6 +168,64 @@ describe 'CloudwatchCommon' do
       expect(resp[:unit]).to be(config[:unit])
       expect((resp[:end_time] - resp[:start_time]).to_i).to be(config[:period] * 10)
     end
+
+    it 'should return the proper payload with extended_statistics' do
+      config = {
+        namespace: 'namespace',
+        metric_name: 'metric_name',
+        dimensions: 'dimensions',
+        period: 2,
+        statistics: 'p90',
+        unit: 'foo'
+      }
+      resp = @check.metrics_request(config)
+      expect(resp[:namespace]).to be(config[:namespace])
+      expect(resp[:metric_name]).to be(config[:metric_name])
+      expect(resp[:dimensions]).to be(config[:dimensions])
+      expect(resp[:period]).to be(config[:period])
+      expect(resp[:extended_statistics]).to eq([config[:statistics]])
+      expect(resp[:unit]).to be(config[:unit])
+      expect((resp[:end_time] - resp[:start_time]).to_i).to be(config[:period] * 10)
+    end
+
+    it 'should return the proper payload with extended_statistics' do
+      config = {
+        namespace: 'namespace',
+        metric_name: 'metric_name',
+        dimensions: 'dimensions',
+        period: 2,
+        statistics: 'p90.50',
+        unit: 'foo'
+      }
+      resp = @check.metrics_request(config)
+      expect(resp[:namespace]).to be(config[:namespace])
+      expect(resp[:metric_name]).to be(config[:metric_name])
+      expect(resp[:dimensions]).to be(config[:dimensions])
+      expect(resp[:period]).to be(config[:period])
+      expect(resp[:extended_statistics]).to eq([config[:statistics]])
+      expect(resp[:unit]).to be(config[:unit])
+      expect((resp[:end_time] - resp[:start_time]).to_i).to be(config[:period] * 10)
+    end
+
+    it 'should return the proper payload with range' do
+      config = {
+        namespace: 'namespace',
+        metric_name: 'metric_name',
+        dimensions: 'dimensions',
+        period: 2,
+        range: 5,
+        statistics: 'Average',
+        unit: 'foo'
+      }
+      resp = @check.metrics_request(config)
+      expect(resp[:namespace]).to be(config[:namespace])
+      expect(resp[:metric_name]).to be(config[:metric_name])
+      expect(resp[:dimensions]).to be(config[:dimensions])
+      expect(resp[:period]).to be(config[:period])
+      expect(resp[:statistics]).to eq([config[:statistics]])
+      expect(resp[:unit]).to be(config[:unit])
+      expect((resp[:end_time] - resp[:start_time]).to_i).to be(config[:range])
+    end
   end
 
   describe '#composite_metrics_request' do
