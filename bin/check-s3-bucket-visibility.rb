@@ -29,7 +29,7 @@
 #   for details.
 #
 
-require 'aws-sdk-s3'
+require 'aws-sdk'
 require 'sensu-plugin/check/cli'
 require 'sensu-plugins-aws'
 
