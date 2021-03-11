@@ -38,6 +38,9 @@ Style/FormatString:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Gemspec/OrderedDependencies:
+  Enabled: false
+
 Style/ClassVars:
   Exclude:
     - test/**/*.rb

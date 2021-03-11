@@ -35,7 +35,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.add_runtime_dependency 'signet',            '= 0.11.0'
   s.add_runtime_dependency 'nokogiri',          '= 1.10.10'
   s.add_runtime_dependency 'google-cloud-env',  '= 1.2.1'
-  s.add_runtime_dependency  'dry-inflector',    '= 0.1.2'
+  s.add_runtime_dependency 'dry-inflector',     '= 0.1.2'
 
   s.add_runtime_dependency 'aws-sdk',           '~> 2.0'
   s.add_runtime_dependency 'erubis',            '2.7.0'
