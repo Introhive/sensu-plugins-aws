@@ -32,6 +32,10 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.version                = SensuPluginsAWS::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin',      '~> 4.0'
+  s.add_runtime_dependency 'signet',            '= 0.11.0'
+  s.add_runtime_dependency 'nokogiri',          '= 1.10.10'
+  s.add_runtime_dependency 'google-cloud-env',  '= 1.2.1'
+  s.add_runtime_dependency 'dry-inflector',     '= 0.1.2'
 
   s.add_runtime_dependency 'aws-sdk',           '~> 2.0'
   s.add_runtime_dependency 'erubis',            '2.7.0'
@@ -42,7 +46,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.add_runtime_dependency 'rest-client',       '1.8.0'
   s.add_runtime_dependency 'right_aws',         '3.1.0'
 
-  s.add_development_dependency 'bundler',                   '~> 1.7'
+  s.add_development_dependency 'bundler',                   '~> 2.0'
   s.add_development_dependency 'github-markup',             '~> 3.0'
   s.add_development_dependency 'pry',                       '~> 0.10'
   s.add_development_dependency 'rake',                      '~> 12.3'
